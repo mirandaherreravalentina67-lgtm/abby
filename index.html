@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abby Lucía | Mis 5 añitos</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --red: #b00028;
+  --dark-red: #40000f;
+  --silver: #e8e8ed;
+  --white: #fff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  background:
+    radial-gradient(circle at top, #c51c43, transparent 55%),
+    linear-gradient(145deg, #39000d, #8d001d 50%, #35000b);
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: .35;
+  background-image:
+    radial-gradient(circle, #fff 1px, transparent 1.5px),
+    radial-gradient(circle, #e5e5eb 1px, transparent 1.5px);
+  background-size: 65px 65px, 95px 95px;
+  background-position: 0 0, 30px 40px;
+  z-index: 0;
+}
+
+section {
+  position: relative;
+  z-index: 1;
+  padding: 75px 20px;
+  text-align: center;
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(27px, 7vw, 39px);
+  color: #f3e9ed;
+  font-weight: 500;
+  margin-bottom: 18px;
+}
+
+.script {
+  font-family: 'Great Vibes', cursive;
+  color: #fff;
+  font-size: clamp(42px, 11vw, 68px);
+  line-height: 1.15;
+}
+
+.small-line {
+  width: 85px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #e8e8ed, transparent);
+  margin: 22px auto;
+}
+
+.card {
+  max-width: 650px;
+  margin: auto;
+  padding: 35px 24px;
+  border: 1px solid rgba(255,255,255,.55);
+  border-radius: 22px;
+  background: linear-gradient(145deg, rgba(255,255,255,.13), rgba(255,255,255,.04));
+  box-shadow: 0 12px 40px rgba(0,0,0,.25);
+  backdrop-filter: blur(8px);
+}
+
+p {
+  font-size: 14px;
+  line-height: 1.9;
+  font-weight: 300;
+  color: #fff4f6;
+}
+
+.rose {
+  font-size: 27px;
+  margin: 10px;
+}
+
+/* PUERTAS DE ENTRADA */
+
+#entrance {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #270009;
+  overflow: hidden;
+}
+
+.door {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.4), transparent 20%, rgba(255,255,255,.08) 50%, transparent 80%, rgba(0,0,0,.4)),
+    repeating-linear-gradient(90deg, #570014 0, #79001c 12%, #4b0011 24%);
+  border: 5px solid #c5c5cb;
+  box-shadow: inset 0 0 30px #160006;
+  transition: transform 2s ease-in-out;
+}
+
+.door.left {
+  left: 0;
+  border-right: 3px solid #d9d9df;
+}
+
+.door.right {
+  right: 0;
+  border-left: 3px solid #d9d9df;
+}
+
+.door::after {
+  content: "✧";
+  position: absolute;
+  top: 48%;
+  color: #e7d9dc;
+  font-size: 40px;
+}
+
+.door.left::after {
+  right: 18px;
+}
+
+.door.right::after {
+  left: 18px;
+}
+
+.entrance-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  padding: 25px;
+  transition: opacity .5s;
+}
+
+.entrance-content h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(48px, 12vw, 78px);
+  color: #fff;
+  margin: 8px 0;
+  text-shadow: 0 0 18px #e8a6b5;
+}
+
+.entrance-content p {
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+
+.open-button {
+  margin-top: 25px;
+  border: 1px solid #eee;
+  border-radius: 40px;
+  background: linear-gradient(120deg, #e7e7ed, #fff, #bdbdc7);
+  color: #700019;
+  padding: 14px 30px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(255,255,255,.3);
+}
+
+#entrance.open .door.left {
+  transform: translateX(-100%);
+}
+
+#entrance.open .door.right {
+  transform: translateX(100%);
+}
+
+#entrance.open .entrance-content {
+  opacity: 0;
+}
+
+#entrance.hidden {
+  display: none;
+}
+
+/* PORTADA */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 45px 20px;
+  background: radial-gradient(circle, rgba(255,255,255,.12), transparent 65%);
+}
+
+.hero .crown {
+  font-size: 42px;
+  margin-bottom: 15px;
+}
+
+.hero h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(55px, 14vw, 90px);
+  font-weight: 400;
+  margin: 12px 0;
+  text-shadow: 0 0 20px rgba(255,255,255,.35);
+}
+
+.hero .subtitle {
+  color: #f4dce2;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.hero .age {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  color: #f3e9ed;
+  letter-spacing: 3px;
+}
+
+.hero .welcome {
+  max-width: 480px;
+  margin: 15px auto;
+}
+
+.music-button {
+  display: inline-block;
+  margin-top: 20px;
+  border: 1px solid #eee;
+  border-radius: 30px;
+  padding: 12px 22px;
+  background: rgba(255,255,255,.13);
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div id="entrance">
+  <div class="door left"></div>
+  <div class="door right"></div>
+
+  <div class="entrance-content">
+    <div class="rose">🌹 ✨ 🌹</div>
+    <p>Un cuento hecho realidad</p>
+    <h1>Abby Lucía</h1>
+    <p>Mis cinco añitos</p>
+    <button class="open-button" onclick="openInvitation()">
+      Abrir invitación ✨
+    </button>
+  </div>
+</div>
+
+<main id="invitation" style="display:none;">
+
+<section class="hero">
+  <div class="crown">👑</div>
+  <p class="subtitle">Un cuento hecho realidad</p>
+  <h1>Abby Lucía</h1>
+  <div class="small-line"></div>
+  <p class="age">MIS 5 AÑITOS</p>
+  <p class="welcome">
+    Hoy mi pequeño mundo se llena de magia,
+    alegría y mucha ilusión.
+  </p>
+  <p>❤️ 🌹 ✨</p>
+</section>
+<section id="bienvenida">
+  <div class="card">
+    <div class="rose">🌹 ✨ 🌹</div>
+    <h2>¡Bienvenidos!</h2>
+    <h3 class="script">Abby Lucía</h3>
+    <p>
+      Hoy mi pequeño mundo se llena de magia,
+      alegría y mucha ilusión. Quiero que seas parte
+      de este día tan especial, donde celebraremos
+      juntos mis cinco añitos. ¡Prepárate para vivir
+      un momento mágico!
+    </p>
+    <div class="small-line"></div>
+    <p>Con mucho cariño ❤️</p>
+  </div>
+</section>
+
+<section id="invitacion">
+  <div class="card">
+    <div class="rose">💌</div>
+    <h2>Una invitación especial</h2>
+    <h3 class="script">¡Me encantaría que vinieras!</h3>
+    <p>
+      Con mucha ilusión y una enorme sonrisa,
+      quiero invitarte a compartir conmigo una
+      fecha muy especial: ¡mis cinco añitos!
+      Será una celebración llena de amor, alegría
+      y momentos hermosos. Tu compañía hará que
+      este día sea aún más mágico e inolvidable.
+    </p>
+    <div class="small-line"></div>
+    <p>Con cariño,</p>
+    <h3 class="script">Abby Lucía ❤️</h3>
+  </div>
+</section>
+<section id="detalles">
+  <div class="card">
+    <div class="rose">👑 🌹</div>
+    <h2>Un día mágico</h2>
+    <div class="small-line"></div>
+
+    <p>📅 FECHA</p>
+    <h3 class="script">19 de noviembre</h3>
+    <p>2026</p>
+
+    <div class="small-line"></div>
+
+    <p>🕔 HORA</p>
+    <h3 class="script">5:00 p. m.</h3>
+
+    <div class="small-line"></div>
+
+    <p>📍 LUGAR</p>
+    <h3 class="script">Mi casita</h3>
+    <p>La Esperanza, sector Las Delicias</p>
+
+    <div class="small-line"></div>
+
+    <p>❤️ CÓDIGO DE VESTUARIO</p>
+    <h3 class="script">¡Reserva el rojo!</h3>
+    <p>
+      Queremos que el rojo sea el color especial
+      de Abby Lucía. Por eso, te pedimos elegir
+      otro color para tu vestuario.
+    </p>
+
+    <div class="rose">🌹 ✨ 🌹</div>
+  </div>
+</section>
+<section id="final">
+  <div class="card">
+    <div class="rose">🌹 👑 🌹</div>
+    <h2>Una celebración de ensueño</h2>
+    <h3 class="script">
+      ¡Te espero para celebrar juntos mis 5 añitos!
+    </h3>
+    <div class="small-line"></div>
+    <p>Con mucho cariño,</p>
+    <h3 class="script">Abby Lucía ❤️</h3>
+    <div class="rose">✨ 🌹 ✨</div>
+  </div>
+</section>
+
+<footer style="text-align:center;padding:25px 15px;position:relative;z-index:1;">
+  <p>Hecho con mucho amor para Abby Lucía ❤️</p>
+</footer>
+
+</main>
+
+<!-- MÚSICA -->
+<audio id="music" loop>
+  <source src="" type="audio/mpeg">
+</audio>
+
+<div id="music-control" style="display:none;position:fixed;bottom:20px;right:20px;z-index:10;">
+  <button class="music-button" onclick="toggleMusic()" id="musicBtn">
+    ▶ Escuchar canción
+  </button>
+</div>
+
+<script>
+function openInvitation() {
+  const entrance = document.getElementById("entrance");
+  const invitation = document.getElementById("invitation");
+
+  entrance.classList.add("open");
+
+  setTimeout(() => {
+    entrance.classList.add("hidden");
+    invitation.style.display = "block";
+    document.getElementById("music-control").style.display = "block";
+    window.scrollTo(0, 0);
+  }, 2000);
+}
+
+function toggleMusic() {
+  const music = document.getElementById("music");
+  const button = document.getElementById("musicBtn");
+
+  if (music.paused) {
+    music.play().then(() => {
+      button.innerHTML = "❚❚ Pausar canción";
+    }).catch(() => {
+      button.innerHTML = "▶ Intentar reproducir";
+    });
+  } else {
+    music.pause();
+    button.innerHTML = "▶ Escuchar canción";
+  }
+}
+</script>
+
+</body>
+</html>
